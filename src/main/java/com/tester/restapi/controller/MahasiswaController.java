@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
 
-
 import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,45 +54,6 @@ public class MahasiswaController {
 		return ResponseEntity.ok(new ResponseJson(ResponseCodes.SUCCESS , mhs));	
 	}
 	
-	
-//	@PostMapping("/upload")
-//	  public ResponseEntity<ResponseJson> uploadFile(@RequestParam("file") MultipartFile file) {
-//	    String message = "";
-//
-//	    if (ExcelHelper.hasExcelFormat(file)) {
-//	      try {
-//	    	excelService.save(file);
-//	        message = "Uploaded the file successfully: " + file.getOriginalFilename();
-////	        return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
-//	        return ResponseEntity.ok(new ResponseJson(ResponseCodes.SUCCESS, file));
-//	      } catch (Exception e) {
-//	    	StringWriter sw = new StringWriter();
-//			PrintWriter pw = new PrintWriter(sw);
-//			e.printStackTrace(pw);
-//			String sStackTrace = sw.toString();
-//	        message = "Could not upload the file: " + file.getOriginalFilename() + "!";
-////	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ResponseMessage(message));
-//	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ResponseJson(ResponseCodes.OTHER, e.getMessage()));
-//	      }
-//	    }
-//	    message = "Please upload an excel file!";
-//	    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseJson(ResponseCodes.SUCCESS, message));
-//	  }
-	
-//	   @GetMapping("/getAllMhss")
-//	   public ResponseEntity<List<Mahasiswa>> getAllMahasiswa() {
-//	    try {
-//	      List<Mahasiswa> Mahasiswas = excelService.getAllMahasiswas();
-//
-//	      if (Mahasiswas.isEmpty()) {
-//	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//	      }
-//
-//	      	return new ResponseEntity<>(Mahasiswas, HttpStatus.OK);
-//	    	} catch (Exception e) {
-//		      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-//		    }
-//		}	  
 	    @PostMapping("/import")
 	    public ResponseEntity<ResponseJson> getExcelToDB(@RequestParam("file") MultipartFile reapExcelDataFile) 
 	    		throws IOException {
